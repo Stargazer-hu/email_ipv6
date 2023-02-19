@@ -1,0 +1,7 @@
+username=1328758056@qq.com
+password=ficudyeryslfhhhg
+send_mail=1328758056@qq.com
+receive_mail=1328758056@qq.com
+mail_host=smtp.qq.com
+port=587
+mail_subject=IPV6_address
