@@ -32,11 +32,14 @@ def check_and_send():
     for i in range(3):
         # 获取IP地址
         url = "https://6.ipw.cn/api/ip/myip?json"
-        response = requests.get(url, timeout=20)
-        if response.status_code == 200:
-            ip = json.loads(response.content)['IP']
-            # print(ip)
-            break
+        try:
+            response = requests.get(url, timeout=20)
+            if response.status_code == 200:
+                ip = json.loads(response.content)['IP']
+                # print(ip)
+                break
+        except Exception as e:
+            pass
 
 
     if (ip != '') and (ip != former_ip):
@@ -62,8 +65,9 @@ def check_and_send():
     return ip
 
 
-
+cnt = 0
 while(1):
     ip = check_and_send()
     sleep(1)
-    print(ip)
+    cnt += 1
+    print(cnt, ':', ip)
